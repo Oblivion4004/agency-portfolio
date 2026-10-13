@@ -581,17 +581,29 @@ h3 {
 }
 .story-signature {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 8px 12px;
   color: var(--clay);
   font-family: var(--serif);
   font-style: italic;
   font-size: 25px;
-  transform: rotate(-5deg);
   margin-top: 36px;
 }
+.signature-note {
+  transform: rotate(-5deg);
+}
+.signature-pair {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.signature-pair img {
+  width: clamp(94px, 9vw, 130px);
+  height: auto;
+}
 .story-signature svg {
-  width: 65px;
+  width: 45px;
   height: 45px;
   transform: rotate(30deg);
 }
@@ -1099,7 +1111,7 @@ h3 {
     max-width: 100%;
   }
   .story-signature {
-    font-size: 24px;
+    font-size: 21px;
     margin-top: 26px;
   }
   .pairing-section {
