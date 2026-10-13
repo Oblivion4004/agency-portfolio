@@ -58,6 +58,11 @@ function render() {
     (1 - progress * 0.4);
   const tilt = 360 * eased;
   const scale = 1 + (g.scale - 1) * eased;
+  // Keep the leaf at departure; blend the matching artwork during the journey.
+  // Deriving this from scroll position also makes the change reverse naturally.
+  const artProgress = clamp((progress - 0.15) / 0.7);
+  const galaxyOpacity = artProgress * artProgress * (3 - 2 * artProgress);
+  cup.style.setProperty("--galaxy-opacity", galaxyOpacity);
   cup.style.transform = `translate3d(${g.x + g.dx * eased}px, ${g.y + g.dy * eased - hop}px, 0) rotate(${tilt}deg) scale(${scale})`;
 }
 

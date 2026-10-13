@@ -27,7 +27,12 @@
   width: 100%;
   height: auto;
 }
-.travel-cup img,
+.travel-cup .cup-galaxy {
+  position: absolute;
+  inset: 0;
+  opacity: var(--galaxy-opacity, 0);
+}
+.travel-cup,
 .cup-destination img {
   filter: drop-shadow(10px 16px 12px #65321f30);
 }

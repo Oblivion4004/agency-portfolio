@@ -58,6 +58,33 @@ try {
   assert.equal(await page.locator(".menu-price").count(), 0);
   assert.equal((await page.locator("#menu").innerText()).includes("₹"), false);
   const cupAtStart = await page.locator(".travel-cup").getAttribute("style");
+  const galaxyOpacity = () =>
+    page
+      .locator(".cup-galaxy")
+      .evaluate((el) => Number(getComputedStyle(el).opacity));
+  assert.equal(await galaxyOpacity(), 0, "Hero starts with leaf art");
+  await page.evaluate(() => {
+    const photo = document.querySelector(".hero-photo").getBoundingClientRect();
+    const target = document
+      .querySelector(".cup-destination")
+      .getBoundingClientRect();
+    const start = photo.top + scrollY + photo.height * 0.6 - innerHeight * 0.55;
+    const end = target.top + scrollY + target.height / 2 - innerHeight * 0.5;
+    window.scrollTo({ top: (start + end) / 2, behavior: "instant" });
+  });
+  await page.waitForFunction(
+    () =>
+      Number(getComputedStyle(document.querySelector(".cup-galaxy")).opacity) >
+      0.45,
+  );
+  assert.ok(
+    (await galaxyOpacity()) > 0.45 && (await galaxyOpacity()) < 0.55,
+    `Art blends midway through the scroll (opacity: ${await galaxyOpacity()}, scroll: ${await page.evaluate(() => scrollY)}, style: ${await page.locator(".travel-cup").getAttribute("style")})`,
+  );
+  await page.screenshot({ path: `${root}/artifacts/coffee-transition.png` });
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await page.waitForTimeout(100);
+  assert.equal(await galaxyOpacity(), 0, "Scrolling back restores the leaf");
   await page.locator(".cup-destination").scrollIntoViewIfNeeded();
   await page.evaluate(() => {
     const target = document
@@ -84,6 +111,7 @@ try {
     );
   });
   assert.equal(landed, true, "Cup should land in its centred destination");
+  assert.equal(await galaxyOpacity(), 1, "The cup lands with galaxy art");
   await page.screenshot({ path: `${root}/artifacts/coffee-landing.png` });
   assert.match(
     await page.locator(".travel-cup").getAttribute("style"),

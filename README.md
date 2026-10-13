@@ -34,7 +34,7 @@ The build copies deployable files into `dist/` and checks local asset references
 
 ## Included behaviour
 
-- A galaxy-art coffee cup makes a full 360° turn and hops from the hero to a centred interlude as the page scrolls. Scrolling remains native; reduced motion and disabled JavaScript use static illustrations.
+- A coffee cup transitions from leaf latte art to a galaxy while making a full 360° turn and hops from the hero to a centred interlude as the page scrolls. Scrolling remains native; reduced motion and disabled JavaScript use static illustrations.
 - Two illustrated guests with laptops and coffee face one another in a static café scene.
 - A croissant game supports four bites with mouse, touch, Enter or Space. Bite masks progressively remove the pastry; the final state links to café visit details and offers replay. Reduced motion keeps the game functional without hover movement, and no JavaScript shows the complete illustration.
 - A price-free sample menu, including its printed version.
@@ -47,7 +47,7 @@ The build copies deployable files into `dist/` and checks local asset references
 
 ## Illustration assets and future photography
 
-The hero uses `coffee-hero.svg` for its static fallback. The moving version separates `coffee-table.svg` and `coffee-cup.svg`; changing the SVG view boxes requires updating the placement geometry in `src/experience.js`.
+The hero uses `coffee-hero.svg` for its static fallback. The moving version separates `coffee-table.svg`, `coffee-cup-leaf.svg` and `coffee-cup.svg`. The matching leaf and galaxy cups blend between 15% and 85% of the scroll journey, reversing when scrolling back; static fallbacks show a leaf in the hero and a galaxy at the destination; changing the SVG view boxes requires updating the placement geometry in `src/experience.js`.
 
 The static café scene and interactive croissant artwork are inline in `index.html`. The croissant uses an SVG mask controlled by the game; `assets/croissant.svg` remains the original illustration reference. `assets/cafe-scene.svg` is the original editable illustration reference; updating that reference alone does not update the inline scene.
 

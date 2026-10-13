@@ -8,7 +8,7 @@ A clearly labelled fictional neighbourhood café, built to practise a real clien
 
 1. Header: café identity, menu, story, visit.
 2. Hero: a welcoming proposition and a direct menu link.
-3. Coffee interlude: the galaxy-art hero cup spins 360° and hops along the scroll and settles in the centre before the menu; static illustrations for reduced motion or no JavaScript.
+3. Coffee interlude: the hero cup transitions from leaf to galaxy art as it spins 360° and hops along the scroll and settles in the centre before the menu; static illustrations for reduced motion or no JavaScript.
 4. Menu: descriptions without prices, accessible category filters and a printable full menu.
 5. Story: a woman and a man facing each other with laptops and coffee; an empty chair is part of the static illustration.
 6. Bakery feature: an illustrated croissant with four clickable bites, live progress, a visit link after the final bite and replay.
