@@ -163,6 +163,17 @@ try {
   );
   await page.keyboard.press("Enter");
   await page.keyboard.press("Enter");
+  // Read final colours after scroll-reveal fades, not a translucent frame.
+  await page.evaluate(() =>
+    Promise.all(
+      document
+        .getAnimations()
+        .filter(
+          (animation) => animation.effect?.getTiming().iterations !== Infinity,
+        )
+        .map((animation) => animation.finished.catch(() => {})),
+    ),
+  );
   assert.deepEqual(
     (
       await new AxeBuilder({ page })
