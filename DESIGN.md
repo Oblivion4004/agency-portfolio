@@ -8,11 +8,12 @@ A clearly labelled fictional neighbourhood café, built to practise a real clien
 
 1. Header: café identity, menu, story, visit.
 2. Hero: a welcoming proposition and a direct menu link.
-3. Menu: sample prices in INR, accessible category filters and a printable full menu.
-4. Story: the atmosphere and the café concept, paired with an interior placeholder.
-5. Bakery feature: a simple editorial break with a pastry placeholder.
-6. Visit: clearly labelled sample hours and unconfigured address/contact details.
-7. Footer: demo disclosure and studio credit.
+3. Coffee interlude: the hero cup hops along the scroll and settles in the centre before the menu; static illustrations for reduced motion or no JavaScript.
+4. Menu: descriptions without prices, accessible category filters and a printable full menu.
+5. Story: a woman and a man facing each other with laptops and coffee; an empty chair responds to mouse hover, keyboard focus and touch.
+6. Bakery feature: a simple editorial break with a pastry placeholder.
+7. Visit: clearly labelled sample hours and unconfigured address/contact details.
+8. Footer: demo disclosure and studio credit.
 
 ## Visual system
 
@@ -20,7 +21,8 @@ A clearly labelled fictional neighbourhood café, built to practise a real clien
 - Editorial Georgia headings with local Manrope for body text and navigation.
 - Broad margins, fine rules, large image areas and restrained corner rounding.
 - Original SVG illustrations occupy the exact photo slots until supplied images replace them.
-- Motion is limited to short reveals and hover states, with reduced-motion support.
+- Scroll animation uses document-relative transforms with a passive scroll listener and requestAnimationFrame. No scroll locking. Reduced motion replaces the travelling cup with static artwork.
+- The interactive chair supports a toggle button, keyboard focus, Escape, mouse hover and touch; reduced motion changes its position immediately.
 
 ## Components and implementation
 

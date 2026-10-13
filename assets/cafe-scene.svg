@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 780" fill="none" role="img" aria-labelledby="cafe-scene-title cafe-scene-desc">
+  <title id="cafe-scene-title">Good company, at the corner table</title>
+  <desc id="cafe-scene-desc">A woman and a man face each other across a café table, working on their laptops and holding coffee. An empty wooden chair in front of the table is waiting for you.</desc>
+  <defs>
+    <pattern id="floor-lines" width="180" height="95" patternUnits="userSpaceOnUse" patternTransform="skewX(-25)"><path d="M0 0H180V95" stroke="#a77d5a" stroke-width="2" opacity=".35"/></pattern>
+  </defs>
+  <path fill="#d9dcc6" d="M0 0H900V780H0z"/>
+  <path fill="#ba9879" d="M0 548H900V780H0z"/>
+  <path fill="url(#floor-lines)" d="M0 548H900V780H0z"/>
+  <path d="M123 455V226a186 186 0 0 1 372 0v229Z" fill="#4e6149"/>
+  <path d="M140 438V225a169 169 0 0 1 338 0v213Z" fill="#f4edd6"/>
+  <circle cx="395" cy="174" r="49" fill="#e3bf78"/>
+  <path d="M140 382q76-137 141-48 78-163 197-46v150H140Z" fill="#b1b99a"/>
+  <path d="M140 417q110-95 202-37 73-59 136-33v91H140Z" fill="#859676"/>
+  <path d="M308 58V438M140 256H478" stroke="#4e6149" stroke-width="12"/>
+  <path d="M112 447H506" stroke="#4e6149" stroke-width="16"/>
+  <path d="m140 462 290 318h292L478 462Z" fill="#f5e7be" opacity=".2"/>
+  <path d="M675 0V120" stroke="#5a5545" stroke-width="5"/>
+  <path d="M589 155q14-75 86-75t86 75Z" fill="#bd7652"/>
+  <ellipse cx="675" cy="155" rx="86" ry="12" fill="#f4dc9d"/>
+  <path d="M573 232H677V333H573z" fill="#8b735a"/>
+  <path d="M583 242H667V323H583z" fill="#f5f0e6"/>
+  <path d="M606 301q-15-54 18-36 35-23 15 37" stroke="#ad6848" stroke-width="5"/>
+  <path d="M751 427H851M771 424V382H824V424" stroke="#736f53" stroke-width="6"/>
+  <path d="M798 382V335m0 33q-48-12-35-38 35-2 35 38m0-12q38-11 34-34-33-3-34 34" fill="#6e805d" stroke="#6e805d" stroke-width="5"/>
+  <ellipse cx="450" cy="664" rx="320" ry="40" fill="#6b4e38" opacity=".12"/>
+  <!-- The occupied chairs frame two people facing each other. -->
+  <g stroke="#65513c" stroke-width="14" stroke-linecap="round">
+    <path d="M165 547 147 679M272 547 295 679M153 544V410q0-30 28-30h32M629 547 611 679M732 547 754 679M744 544V410q0-30-28-30h-32"/>
+  </g>
+  <path d="M158 410H188V531H158ZM710 410H740V531H710Z" fill="#a48155"/>
+  <path d="M144 535H282V554H144ZM616 535H751V554H616Z" fill="#72583d"/>
+  <!-- Woman, facing right: long hair, clay shirt, trousers, cup. -->
+  <path d="M198 496q29 10 89 10 26 0 27 28l-8 102h-31l-8-89-54-2Z" fill="#46533d"/>
+  <path d="M216 513q22 34 46 38l-10 88h-31l-8-112Z" fill="#596246"/>
+  <path d="M273 632h34l19 17q7 9-6 11h-50ZM218 634h35l13 19q4 8-8 9h-42Z" fill="#302b26"/>
+  <path d="M187 339q-36 23-30 68l34 117q38 18 85-7l-24-133q-10-43-33-44Z" fill="#ad533d"/>
+  <path d="m226 365 42 73 74-15" stroke="#9e4735" stroke-width="32" stroke-linecap="round"/>
+  <path d="m271 434 69-9" stroke="#ce9370" stroke-width="20" stroke-linecap="round"/>
+  <path d="m229 366 35 23 36-40" stroke="#b66048" stroke-width="29" stroke-linecap="round"/>
+  <path d="m271 382 31-37" stroke="#ce9370" stroke-width="20" stroke-linecap="round"/>
+  <path d="M199 308v41q12 17 31-2l-5-44" fill="#ce9370"/>
+  <path d="M181 256q0-49 44-43 33 4 31 39l13 26-15 7q-2 37-31 36-42-1-42-65Z" fill="#dca783"/>
+  <path d="M179 306q-15-48-1-75 12-31 48-24 26 3 32 29-26 10-45-7-22 22-10 61 30 42 6 76-35 4-45-17 21-19 15-43Z" fill="#3e3026"/>
+  <path d="M187 299q-36 56-12 91 39 14 47-19-25-18-19-54" fill="#3e3026"/>
+  <path d="m240 258 4 0" stroke="#3b3027" stroke-width="4" stroke-linecap="round"/>
+  <path d="M246 297q7 3 12-2" stroke="#9e5740" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="212" cy="286" r="5" stroke="#dcbd70" stroke-width="3"/>
+  <g class="scene-mug"><path d="M288 321h35v30q-17 15-35 0Z" fill="#fbf1d8"/><path d="M324 327h7q13 12-2 20h-5" stroke="#fbf1d8" stroke-width="6"/><ellipse cx="305" cy="321" rx="17" ry="5" fill="#754129"/><path class="steam" d="M298 307q-8-9 0-18m14 18q-8-9 0-18" stroke="#fbf1d8" stroke-width="3" stroke-linecap="round"/></g>
+  <!-- Man, facing left: rolled sleeves, dark hair and coffee. -->
+  <path d="M700 502q-38-6-95 6-29 7-22 41l19 89h33l-6-94 61-1Z" fill="#4b4238"/>
+  <path d="M707 514q-4 33-25 40l5 88h-33l-20-110Z" fill="#605346"/>
+  <path d="M601 633h34v28h-58q-10-6 0-13ZM653 637h35l11 24h-63q-8-5 4-12Z" fill="#302b26"/>
+  <path d="M668 337q39-4 51 35l4 136q-35 27-87 7l8-125Z" fill="#6c7856"/>
+  <path d="m663 371-34 64-76-9" stroke="#566747" stroke-width="32" stroke-linecap="round"/>
+  <path d="m623 432-70-6" stroke="#b67b55" stroke-width="20" stroke-linecap="round"/>
+  <path d="m689 376-35 13-41-40" stroke="#79845f" stroke-width="30" stroke-linecap="round"/>
+  <path d="m647 385-32-37" stroke="#b67b55" stroke-width="21" stroke-linecap="round"/>
+  <path d="M659 306v37q15 22 31 0l-6-49" fill="#b67b55"/>
+  <path d="M642 247q4-36 39-34 40 8 29 57l-19 41q-29 19-44-3l-8-26-14-7Z" fill="#c88e63"/>
+  <path d="M640 249q-18-24 4-41 27-22 58 0 30 4 17 44l-11 30-16-4 2-29q-32 9-54 0Z" fill="#302b26"/>
+  <path d="M640 291q19 19 37 1l19-14-5 28q-14 27-40 6Z" fill="#413229"/>
+  <path d="M649 260h-4" stroke="#302b26" stroke-width="4" stroke-linecap="round"/>
+  <path d="M639 299h12" stroke="#dca783" stroke-width="3" stroke-linecap="round"/>
+  <g class="scene-mug"><path d="M589 322h36v30q-18 15-36 0Z" fill="#e0bc79"/><path d="M588 328h-8q-12 11 2 19h6" stroke="#e0bc79" stroke-width="6"/><ellipse cx="607" cy="322" rx="18" ry="5" fill="#754129"/><path class="steam" d="M600 307q-8-9 0-18m14 18q-8-9 0-18" stroke="#fbf1d8" stroke-width="3" stroke-linecap="round"/></g>
+  <!-- Table and two open laptops, screens oriented towards their owners. -->
+  <path d="M385 484 361 658M512 484 535 658" stroke="#65573d" stroke-width="16" stroke-linecap="round"/>
+  <ellipse cx="451" cy="472" rx="204" ry="47" fill="#806044"/>
+  <ellipse cx="451" cy="458" rx="204" ry="47" fill="#d9b786"/>
+  <g stroke-linejoin="round"><path d="m325 453 59-5 20-76-64 6Z" fill="#596655" stroke="#e7e7d8" stroke-width="5"/><path d="m325 453-39 7 85 11 13-23Z" fill="#c4cbbb"/><path d="m356 395 32-3m-34 12 25-2m-28 12 31-3" stroke="#bdcda9" stroke-width="3"/>
+  <path d="m574 453-59-5-20-76 64 6Z" fill="#596655" stroke="#e7e7d8" stroke-width="5"/><path d="m574 453 40 7-86 11-13-23Z" fill="#c4cbbb"/><path d="m544 395-32-3m34 12-25-2m28 12-31-3" stroke="#bdcda9" stroke-width="3"/></g>
+  <ellipse cx="450" cy="451" rx="21" ry="7" fill="#eee2c4"/><path d="M439 451h22l-3-38h-16Z" fill="#eadfc9"/><path d="M450 415v-35" stroke="#6f7b53" stroke-width="3"/><path d="M450 385q-23-18-7-23 9-17 16-1 18 6-9 24Z" fill="#b97d47"/>
+  <!-- One free chair, animated independently of the seated guests. -->
+  <g id="guest-chair" class="guest-chair">
+    <ellipse cx="450" cy="699" rx="90" ry="15" fill="#71523b" opacity=".18"/>
+    <path d="m398 625-18 82m122-82 18 82" stroke="#63503a" stroke-width="13" stroke-linecap="round"/>
+    <path d="M386 609q64-20 128 0v23H386Z" fill="#8d6843"/>
+    <path d="M395 618V549q0-55 55-55t55 55v69" fill="#bb975f" stroke="#6d5438" stroke-width="13"/>
+    <path d="M414 604V548m24 56V534m24 70V534m24 70V548" stroke="#8f6d45" stroke-width="6" stroke-linecap="round"/>
+    <path d="M392 613q58-17 116 0v16H392Z" fill="#9b784c"/>
+  </g>
+</svg>

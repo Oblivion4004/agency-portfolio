@@ -55,6 +55,56 @@ try {
   assert.equal((await page.goto(url)).status(), 200);
   await page.evaluate(() => document.fonts.ready);
   assert.equal(await page.locator("h1").count(), 1);
+  assert.equal(await page.locator(".menu-price").count(), 0);
+  assert.equal((await page.locator("#menu").innerText()).includes("₹"), false);
+  const cupAtStart = await page.locator(".travel-cup").getAttribute("style");
+  await page.locator(".cup-destination").scrollIntoViewIfNeeded();
+  await page.evaluate(() => {
+    const target = document
+      .querySelector(".cup-destination")
+      .getBoundingClientRect();
+    window.scrollTo({
+      top: scrollY + target.top + target.height / 2 - innerHeight / 2 + 10,
+      behavior: "instant",
+    });
+  });
+  await page.waitForTimeout(100);
+  assert.notEqual(
+    await page.locator(".travel-cup").getAttribute("style"),
+    cupAtStart,
+    "Cup should move on scroll",
+  );
+  const landed = await page.evaluate(() => {
+    const cup = document.querySelector(".travel-cup").getBoundingClientRect();
+    const target = document
+      .querySelector(".cup-destination")
+      .getBoundingClientRect();
+    return (
+      Math.abs(cup.left - target.left) < 2 && Math.abs(cup.top - target.top) < 2
+    );
+  });
+  assert.equal(landed, true, "Cup should land in its centred destination");
+  await page.screenshot({ path: `${root}/artifacts/coffee-landing.png` });
+  await page.locator(".chair-button").hover();
+  assert.equal(
+    await page
+      .locator(".cafe-scene")
+      .evaluate((el) => el.classList.contains("is-inviting")),
+    true,
+  );
+  await page.locator(".chair-button").click();
+  assert.equal(
+    await page.locator(".chair-button").getAttribute("aria-pressed"),
+    "true",
+  );
+  await page.keyboard.press("Escape");
+  assert.equal(
+    await page.locator(".chair-button").getAttribute("aria-pressed"),
+    "false",
+  );
+  await page
+    .locator(".cafe-scene")
+    .screenshot({ path: `${root}/artifacts/cafe-scene.png` });
   assert.equal(await page.locator(".menu-item:visible").count(), 8);
   await page.getByRole("button", { name: "Coffee", exact: true }).click();
   assert.equal(await page.locator(".menu-item:visible").count(), 3);
@@ -120,6 +170,25 @@ try {
   await mobile.goto(url);
   await mobile.evaluate(() => document.fonts.ready);
   assert.equal(
+    await mobile.locator(".travel-cup").isVisible(),
+    false,
+    "Reduced motion uses a static cup",
+  );
+  await mobile.locator(".chair-button").tap();
+  assert.equal(
+    await mobile.locator(".chair-button").getAttribute("aria-pressed"),
+    "true",
+  );
+  await mobile.locator(".chair-button").tap();
+  assert.equal(
+    await mobile
+      .locator(".cafe-scene")
+      .evaluate((el) => el.classList.contains("is-inviting")),
+    false,
+    "Second tap returns the chair",
+  );
+  await mobile.evaluate(() => window.scrollTo(0, 0));
+  assert.equal(
     await mobile.locator("#site-nav").evaluate((nav) => nav.inert),
     true,
   );
@@ -161,7 +230,7 @@ try {
     true,
     "Mobile horizontal overflow",
   );
-  for (const image of await mobile.locator("img").all()) {
+  for (const image of await mobile.locator("img:visible").all()) {
     await image.scrollIntoViewIfNeeded();
     await image.evaluate((element) => element.decode());
   }
@@ -188,6 +257,47 @@ try {
     "Small phone horizontal overflow",
   );
 
+  const mobileMotion = await browser.newPage({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true,
+  });
+  await mobileMotion.goto(url);
+  await mobileMotion.evaluate(() => document.fonts.ready);
+  await mobileMotion.evaluate(() => {
+    const target = document
+      .querySelector(".cup-destination")
+      .getBoundingClientRect();
+    window.scrollTo({
+      top: scrollY + target.top + target.height / 2 - innerHeight / 2 + 20,
+      behavior: "instant",
+    });
+  });
+  await mobileMotion.waitForTimeout(100);
+  assert.equal(
+    await mobileMotion.evaluate(() => {
+      const cup = document.querySelector(".travel-cup").getBoundingClientRect();
+      const target = document
+        .querySelector(".cup-destination")
+        .getBoundingClientRect();
+      return (
+        Math.abs(cup.left - target.left) < 2 &&
+        Math.abs(cup.top - target.top) < 2
+      );
+    }),
+    true,
+    "Mobile cup reaches its destination",
+  );
+  await mobileMotion.screenshot({
+    path: `${root}/artifacts/mobile-coffee-landing.png`,
+  });
+  await mobileMotion.emulateMedia({ reducedMotion: "reduce" });
+  await mobileMotion.waitForTimeout(100);
+  assert.equal(
+    await mobileMotion.locator(".travel-cup").isVisible(),
+    false,
+    "Motion preferences can change while browsing",
+  );
   const noJavaScript = await browser.newPage({
     javaScriptEnabled: false,
     viewport: { width: 390, height: 844 },

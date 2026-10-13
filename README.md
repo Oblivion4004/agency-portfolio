@@ -25,14 +25,18 @@ The build copies deployable files into `dist/` and checks local asset references
 
 ## Files to edit
 
-- `index.html`: café copy, menu items/prices, opening hours, address and contact information.
+- `index.html`: café copy, menu descriptions, inline café scene, opening hours, address and contact information.
 - `src/styles.css`: colours, typography, layout, mobile and print styles.
 - `src/main.js`: navigation, menu filters and subtle reveals.
+- `src/experience.js` and `src/experience.css`: scroll-driven cup choreography and the interactive chair.
 - `assets/`: original SVG illustration placeholders and the self-hosted Manrope font.
 - `DESIGN.md`: the information architecture, design system and component plan.
 
 ## Included behaviour
 
+- A coffee cup hops from the hero to a centred interlude as the page scrolls. Scrolling remains native; reduced motion and disabled JavaScript use static illustrations.
+- Two illustrated guests with laptops and coffee face one another. Hover the scene, focus its button, or tap to pull out the spare chair; tap again or press Escape to return it.
+- A price-free sample menu, including its printed version.
 - Menu category filters with accessible pressed states and live announcements.
 - Printable full menu, including categories currently filtered out on screen.
 - Mobile navigation with Escape dismissal and no hidden focusable links.
@@ -40,19 +44,23 @@ The build copies deployable files into `dist/` and checks local asset references
 - Local assets only; no trackers, cookies, third-party runtime requests or external fonts.
 - Complete readable menu and navigation when JavaScript is disabled.
 
-## Replace the three illustrations
+## Illustration assets and future photography
 
-Supply these photos, ideally without baked-in text or watermarks:
+The hero uses `coffee-hero.svg` for its static fallback. The moving version separates `coffee-table.svg` and `coffee-cup.svg`; changing the SVG view boxes requires updating the placement geometry in `src/experience.js`.
+
+The interactive café scene is inline in `index.html` so the chair can animate independently. `assets/cafe-scene.svg` is the original editable illustration reference; updating that reference alone does not update the inline scene.
+
+For a later photography refresh, supply owned or licensed photos without baked-in text or watermarks:
 
 1. **Hero coffee:** portrait, 1600 × 2000 or larger. A latte/cappuccino on a warm café table, cup near the centre. Leave space around it for the arched crop. Current placeholder: `assets/coffee-hero.svg`.
-2. **Café interior:** landscape, 1800 × 1200 or larger. A naturally lit seating area with a table/window; avoid identifiable customers unless you have their permission. Current placeholder: `assets/cafe-interior.svg`. The design crops this to a nearly square area, so keep the important subject central.
+2. **Café interior:** landscape, 1800 × 1200 or larger, for an additional photo section. Replacing the current interactive illustration would also require redesigning the chair interaction.
 3. **Pastry:** landscape, 1600 × 1200 or larger. A croissant, cookie or other signature bake, preferably on a table beside a cup. Current placeholder: `assets/croissant.svg`.
 
-Use owned or appropriately licensed photos. When supplied, create efficient WebP/AVIF sizes, update the `img` sources, dimensions and alt text, and remove the photography-to-follow caption. The current SVG illustrations are original editable placeholders.
+When supplied, create efficient WebP/AVIF sizes and update sources, dimensions and alt text. The current SVG illustrations are original editable artwork.
 
 ## Before any real client launch
 
-This is a clearly labelled fictional café concept. All prices and hours are samples. Address and phone/email are deliberately unconfigured; there is no ordering, reservation or contact backend. Do not claim that enquiries or payments are functional.
+This is a clearly labelled fictional café concept. Menu descriptions and hours are samples. Address and phone/email are deliberately unconfigured; there is no ordering, reservation or contact backend. Do not claim that enquiries or payments are functional.
 
 For a real launch, replace the sample content with approved information, configure a genuine contact/directions action, and remove the demo notice and `noindex`/robots block only when appropriate. This phase includes no analytics dashboard or tracking; those can be connected after deployment using the client's account.
 

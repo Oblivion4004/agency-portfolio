@@ -464,11 +464,7 @@ h3 {
 .menu-item h3 {
   font-size: 25px;
 }
-.menu-price {
-  font-size: 13px;
-  font-weight: 650;
-  white-space: nowrap;
-}
+
 .menu-item p {
   font-size: 11px;
   color: var(--muted);
@@ -1283,9 +1279,7 @@ h3 {
   .menu-item p {
     font-size: 9pt;
   }
-  .menu-price {
-    font-size: 10pt;
-  }
+
   .menu-category {
     font-size: 6pt;
   }
@@ -1297,7 +1291,7 @@ h3 {
     transform: none;
   }
   .menu-section::after {
-    content: "Fictional café demo. Prices are illustrative; orders are not accepted.";
+    content: "Fictional café demo. This is an illustrative menu; orders are not accepted.";
     display: block;
     font-size: 8pt;
     margin-top: 20pt;

@@ -1,0 +1,202 @@
+/* The cup stays in document flow: scrolling is never locked or intercepted. */
+.coffee-journey {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.coffee-motion .hero-photo {
+  background: #be704e url("../assets/coffee-table.svg") center / cover no-repeat;
+}
+.coffee-motion .hero-art {
+  visibility: hidden;
+}
+.travel-cup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 3;
+  transform-origin: center;
+}
+.coffee-motion .travel-cup {
+  display: block;
+  will-change: transform;
+}
+.travel-cup img {
+  width: 100%;
+  height: auto;
+}
+.travel-cup img,
+.cup-destination img {
+  filter: drop-shadow(10px 16px 12px #65321f30);
+}
+.coffee-landing {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 42px 20px 80px;
+  text-align: center;
+}
+.coffee-landing .eyebrow {
+  margin: 0 0 5px;
+  color: var(--muted);
+}
+.cup-destination {
+  width: clamp(225px, 26vw, 340px);
+  aspect-ratio: 700 / 690;
+  position: relative;
+  z-index: 1;
+}
+.coffee-motion .cup-destination img {
+  visibility: hidden;
+}
+.landing-copy {
+  position: relative;
+  z-index: 4;
+}
+.landing-copy h2 {
+  font-size: clamp(46px, 5.3vw, 72px);
+}
+.landing-copy p {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.landing-orbit {
+  position: absolute;
+  top: 45px;
+  width: min(65vw, 740px);
+  height: 260px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+  opacity: 0.7;
+  z-index: -1;
+}
+.landing-orbit::after {
+  content: "✳";
+  position: absolute;
+  right: 9%;
+  top: 8%;
+  color: var(--clay);
+  background: var(--cream);
+  padding: 0 12px;
+  font-size: 35px;
+}
+.round-stamp {
+  transition: transform 0.7s ease;
+}
+.hero-visual:hover .round-stamp {
+  transform: rotate(10deg);
+}
+.menu-item {
+  transition:
+    background 0.25s,
+    padding 0.25s;
+}
+.menu-item:hover {
+  background: #ebe7d9;
+  padding-left: 14px;
+}
+.cafe-scene {
+  background: #d9dcc6;
+  border-radius: 48% 48% 4px 4px;
+  overflow: hidden;
+}
+.cafe-scene > svg {
+  width: 100%;
+  height: auto;
+  padding-top: 26px;
+}
+.story-photo .scene-caption {
+  position: relative;
+  inset: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 24px 12px 26px;
+  background: #d9dcc6;
+  text-align: center;
+  font-size: 8px;
+  letter-spacing: 0.13em;
+}
+.chair-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 13px;
+  min-height: 48px;
+  padding: 10px 23px;
+  border: 1px solid #637056;
+  border-radius: 30px;
+  background: transparent;
+  font-size: 12px;
+  letter-spacing: 0;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.chair-button:hover,
+.chair-button[aria-pressed="true"] {
+  background: var(--olive);
+  color: var(--cream);
+}
+.chair-button > span {
+  font-size: 22px;
+}
+.scene-caption .chair-hint {
+  font-size: 10px;
+  color: #505c42;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-top: 10px;
+}
+.guest-chair {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cafe-scene.is-inviting .guest-chair {
+  transform: translate(9px, 42px) rotate(-7deg);
+}
+.steam {
+  opacity: 0.7;
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease;
+}
+.cafe-scene.is-inviting .steam {
+  transform: translateY(-7px);
+  opacity: 1;
+}
+@media (max-width: 760px) {
+  .coffee-landing {
+    padding-top: 20px;
+    padding-bottom: 55px;
+  }
+  .coffee-landing .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+  .landing-orbit {
+    width: 85%;
+    height: 190px;
+  }
+  .story-photo.cafe-scene {
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guest-chair {
+    transition: none;
+  }
+}
+@media print {
+  .coffee-journey {
+    display: none !important;
+  }
+}

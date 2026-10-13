@@ -1,3 +1,5 @@
+import "./experience.js";
+
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".site-nav");
 const mobileQuery = window.matchMedia("(max-width: 760px)");
