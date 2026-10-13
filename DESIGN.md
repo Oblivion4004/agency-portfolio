@@ -8,10 +8,10 @@ A clearly labelled fictional neighbourhood café, built to practise a real clien
 
 1. Header: café identity, menu, story, visit.
 2. Hero: a welcoming proposition and a direct menu link.
-3. Coffee interlude: the hero cup hops along the scroll and settles in the centre before the menu; static illustrations for reduced motion or no JavaScript.
+3. Coffee interlude: the galaxy-art hero cup spins 360° and hops along the scroll and settles in the centre before the menu; static illustrations for reduced motion or no JavaScript.
 4. Menu: descriptions without prices, accessible category filters and a printable full menu.
-5. Story: a woman and a man facing each other with laptops and coffee; an empty chair responds to mouse hover, keyboard focus and touch.
-6. Bakery feature: a simple editorial break with a pastry placeholder.
+5. Story: a woman and a man facing each other with laptops and coffee; an empty chair is part of the static illustration.
+6. Bakery feature: an illustrated croissant with four clickable bites, live progress, a visit link after the final bite and replay.
 7. Visit: clearly labelled sample hours and unconfigured address/contact details.
 8. Footer: demo disclosure and studio credit.
 
@@ -22,7 +22,7 @@ A clearly labelled fictional neighbourhood café, built to practise a real clien
 - Broad margins, fine rules, large image areas and restrained corner rounding.
 - Original SVG illustrations occupy the exact photo slots until supplied images replace them.
 - Scroll animation uses document-relative transforms with a passive scroll listener and requestAnimationFrame. No scroll locking. Reduced motion replaces the travelling cup with static artwork.
-- The interactive chair supports a toggle button, keyboard focus, Escape, mouse hover and touch; reduced motion changes its position immediately.
+- The croissant uses a native button for mouse, touch and keyboard input. SVG masks cut away actual pastry, live text announces each stage, and replay restores it. No JavaScript preserves the whole illustration.
 
 ## Components and implementation
 

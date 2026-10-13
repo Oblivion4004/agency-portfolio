@@ -85,26 +85,66 @@ try {
   });
   assert.equal(landed, true, "Cup should land in its centred destination");
   await page.screenshot({ path: `${root}/artifacts/coffee-landing.png` });
-  await page.locator(".chair-button").hover();
+  assert.match(
+    await page.locator(".travel-cup").getAttribute("style"),
+    /rotate\(360deg\)/,
+  );
+  assert.equal(await page.locator(".chair-button").count(), 0);
+  await page.locator(".cafe-scene").hover();
   assert.equal(
     await page
-      .locator(".cafe-scene")
-      .evaluate((el) => el.classList.contains("is-inviting")),
-    true,
-  );
-  await page.locator(".chair-button").click();
-  assert.equal(
-    await page.locator(".chair-button").getAttribute("aria-pressed"),
-    "true",
-  );
-  await page.keyboard.press("Escape");
-  assert.equal(
-    await page.locator(".chair-button").getAttribute("aria-pressed"),
-    "false",
+      .locator("#guest-chair")
+      .evaluate((el) => getComputedStyle(el).transform),
+    "none",
   );
   await page
     .locator(".cafe-scene")
-    .screenshot({ path: `${root}/artifacts/cafe-scene.png` });
+    .screenshot({ path: root + "/artifacts/cafe-scene.png" });
+  const bite = page.locator(".bite-trigger");
+  for (let count = 1; count <= 4; count++) {
+    await bite.click();
+    assert.equal(
+      await page.locator(".croissant-game").getAttribute("data-bites"),
+      String(count),
+    );
+    if (count === 2 || count === 4)
+      await page
+        .locator(".croissant-game")
+        .screenshot({ path: root + "/artifacts/croissant-" + count + ".png" });
+  }
+  assert.equal(await page.locator(".bite-finish").isVisible(), true);
+  assert.equal(
+    await page.locator(".bite-finish a").getAttribute("href"),
+    "#visit",
+  );
+  await bite.click({ force: true });
+  assert.equal(
+    await page.locator(".croissant-game").getAttribute("data-bites"),
+    "4",
+  );
+  await page.locator(".bite-reset").click();
+  assert.equal(
+    await bite.evaluate((el) => document.activeElement === el),
+    true,
+  );
+  await page.keyboard.press("Enter");
+  await page.keyboard.press("Space");
+  assert.equal(
+    await page.locator(".croissant-game").getAttribute("data-bites"),
+    "2",
+  );
+  await page.keyboard.press("Enter");
+  await page.keyboard.press("Enter");
+  assert.deepEqual(
+    (
+      await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+        .analyze()
+    ).violations,
+    [],
+    "Finished game accessibility",
+  );
+  await page.locator(".bite-reset").click();
   assert.equal(await page.locator(".menu-item:visible").count(), 8);
   await page.getByRole("button", { name: "Coffee", exact: true }).click();
   assert.equal(await page.locator(".menu-item:visible").count(), 3);
@@ -174,18 +214,21 @@ try {
     false,
     "Reduced motion uses a static cup",
   );
-  await mobile.locator(".chair-button").tap();
+  for (let count = 1; count <= 4; count++) {
+    await mobile.locator(".bite-trigger").tap();
+    assert.equal(
+      await mobile.locator(".croissant-game").getAttribute("data-bites"),
+      String(count),
+    );
+  }
+  assert.equal(await mobile.locator(".bite-finish").isVisible(), true);
+  await mobile
+    .locator(".croissant-game")
+    .screenshot({ path: root + "/artifacts/mobile-croissant.png" });
+  await mobile.locator(".bite-reset").tap();
   assert.equal(
-    await mobile.locator(".chair-button").getAttribute("aria-pressed"),
-    "true",
-  );
-  await mobile.locator(".chair-button").tap();
-  assert.equal(
-    await mobile
-      .locator(".cafe-scene")
-      .evaluate((el) => el.classList.contains("is-inviting")),
-    false,
-    "Second tap returns the chair",
+    await mobile.locator(".croissant-game").getAttribute("data-bites"),
+    "0",
   );
   await mobile.evaluate(() => window.scrollTo(0, 0));
   assert.equal(
@@ -309,6 +352,8 @@ try {
     3,
   );
   assert.equal(await noJavaScript.locator(".menu-filters").isVisible(), false);
+  assert.equal(await noJavaScript.locator(".croissant-art").isVisible(), true);
+  assert.equal(await noJavaScript.locator(".bite-trigger").isVisible(), false);
   assert.equal((await page.request.get(`${url}/missing-page`)).status(), 404);
   assert.equal((await page.request.get(`${url}/package.json`)).status(), 404);
   assert.deepEqual(errors, [], "Browser errors or failed resources");

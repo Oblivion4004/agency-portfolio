@@ -56,7 +56,7 @@ function render() {
     Math.abs(Math.sin(progress * Math.PI * 2)) *
     (innerWidth < 761 ? 38 : 80) *
     (1 - progress * 0.4);
-  const tilt = Math.sin(progress * Math.PI * 2) * 15;
+  const tilt = 360 * eased;
   const scale = 1 + (g.scale - 1) * eased;
   cup.style.transform = `translate3d(${g.x + g.dx * eased}px, ${g.y + g.dy * eased - hop}px, 0) rotate(${tilt}deg) scale(${scale})`;
 }
@@ -85,49 +85,62 @@ document.fonts.ready.then(measure);
 // Layout can change when the mobile navigation or text dimensions change.
 if ("ResizeObserver" in window) new ResizeObserver(measure).observe(journey);
 
-const scene = document.querySelector(".cafe-scene");
-const chairButton = document.querySelector(".chair-button");
-const chairHint = document.querySelector(".chair-hint");
-let selected = false;
-let hovered = false;
-let focused = false;
-chairButton.hidden = false;
-function updateChair() {
-  scene.classList.toggle("is-inviting", selected || hovered || focused);
-  chairButton.setAttribute("aria-pressed", String(selected));
-  chairHint.textContent = selected
-    ? "Your chair is ready. Stay a little."
-    : "Hover, focus, or tap to make yourself at home.";
+const game = document.querySelector(".croissant-game");
+const biteButton = game.querySelector(".bite-trigger");
+const status = game.querySelector("#bite-status");
+const cutout = game.querySelector("#bite-cutout");
+const finish = game.querySelector(".bite-finish");
+const invitation = game.querySelector(".bite-invitation");
+let bites = 0;
+const messages = [
+  "Flaky. Buttery. All yours.",
+  "That first, buttery bite. Keep going.",
+  "Halfway to happiness.",
+  "One last bite. Make it count.",
+  "Just crumbs. That went well.",
+];
+const labels = [
+  "Take the first bite of the croissant",
+  "Take a second bite: eat half the croissant",
+  "Take a third bite of the croissant",
+  "Take the final bite of the croissant",
+  "Croissant finished. Find café details below.",
+];
+// Each scalloped edge cuts further across the actual pastry, leaving the table intact.
+const cuts = [
+  "",
+  "M825 0H1200V850H825V575q-55-20-12-63q-63-20-20-65q-65-22-18-68q-58-32-4-65V0Z",
+  "M630 0H1200V850H630V580q-60-20-20-64q-62-24-16-70q-59-26-12-70q-50-35-2-75V0Z",
+  "M430 0H1200V850H430V620q-58-20-12-63q-58-25-13-68q-54-29-11-67q-50-32-3-74V0Z",
+  "M0 0h1200v850H0z",
+];
+function updateBites() {
+  game.dataset.bites = String(bites);
+  cutout.setAttribute("d", cuts[bites]);
+  game.querySelector("#croissant-title").textContent = [
+    "A whole golden croissant on baking paper",
+    "A croissant with its first bite missing",
+    "Half a golden croissant",
+    "The last small piece of croissant",
+    "An empty sheet of baking paper with croissant crumbs",
+  ][bites];
+  status.textContent = messages[bites];
+  game.querySelector(".bite-count").textContent = bites + " / 4 BITES";
+  biteButton.setAttribute("aria-label", labels[bites]);
+  biteButton.setAttribute("aria-disabled", String(bites === 4));
+  finish.hidden = bites !== 4;
+  invitation.hidden = bites !== 0;
 }
-scene.addEventListener("pointerenter", (event) => {
-  if (event.pointerType === "mouse") {
-    hovered = true;
-    updateChair();
-  }
+biteButton.hidden = false;
+game.querySelector(".bite-controls").hidden = false;
+biteButton.addEventListener("click", () => {
+  if (bites === 4) return;
+  bites += 1;
+  updateBites();
 });
-scene.addEventListener("pointerleave", () => {
-  hovered = false;
-  updateChair();
+game.querySelector(".bite-reset").addEventListener("click", () => {
+  bites = 0;
+  updateBites();
+  biteButton.focus({ preventScroll: true });
 });
-chairButton.addEventListener("focus", () => {
-  focused = true;
-  updateChair();
-});
-chairButton.addEventListener("blur", () => {
-  focused = false;
-  updateChair();
-});
-chairButton.addEventListener("click", () => {
-  selected = !selected;
-  focused = false;
-  updateChair();
-});
-chairButton.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    selected = false;
-    hovered = false;
-    focused = false;
-    updateChair();
-  }
-});
-updateChair();
+updateBites();

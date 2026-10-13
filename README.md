@@ -28,14 +28,15 @@ The build copies deployable files into `dist/` and checks local asset references
 - `index.html`: café copy, menu descriptions, inline café scene, opening hours, address and contact information.
 - `src/styles.css`: colours, typography, layout, mobile and print styles.
 - `src/main.js`: navigation, menu filters and subtle reveals.
-- `src/experience.js` and `src/experience.css`: scroll-driven cup choreography and the interactive chair.
+- `src/experience.js` and `src/experience.css`: scroll-driven cup choreography and the four-bite croissant game.
 - `assets/`: original SVG illustration placeholders and the self-hosted Manrope font.
 - `DESIGN.md`: the information architecture, design system and component plan.
 
 ## Included behaviour
 
-- A coffee cup hops from the hero to a centred interlude as the page scrolls. Scrolling remains native; reduced motion and disabled JavaScript use static illustrations.
-- Two illustrated guests with laptops and coffee face one another. Hover the scene, focus its button, or tap to pull out the spare chair; tap again or press Escape to return it.
+- A galaxy-art coffee cup makes a full 360° turn and hops from the hero to a centred interlude as the page scrolls. Scrolling remains native; reduced motion and disabled JavaScript use static illustrations.
+- Two illustrated guests with laptops and coffee face one another in a static café scene.
+- A croissant game supports four bites with mouse, touch, Enter or Space. Bite masks progressively remove the pastry; the final state links to café visit details and offers replay. Reduced motion keeps the game functional without hover movement, and no JavaScript shows the complete illustration.
 - A price-free sample menu, including its printed version.
 - Menu category filters with accessible pressed states and live announcements.
 - Printable full menu, including categories currently filtered out on screen.
@@ -48,13 +49,13 @@ The build copies deployable files into `dist/` and checks local asset references
 
 The hero uses `coffee-hero.svg` for its static fallback. The moving version separates `coffee-table.svg` and `coffee-cup.svg`; changing the SVG view boxes requires updating the placement geometry in `src/experience.js`.
 
-The interactive café scene is inline in `index.html` so the chair can animate independently. `assets/cafe-scene.svg` is the original editable illustration reference; updating that reference alone does not update the inline scene.
+The static café scene and interactive croissant artwork are inline in `index.html`. The croissant uses an SVG mask controlled by the game; `assets/croissant.svg` remains the original illustration reference. `assets/cafe-scene.svg` is the original editable illustration reference; updating that reference alone does not update the inline scene.
 
 For a later photography refresh, supply owned or licensed photos without baked-in text or watermarks:
 
 1. **Hero coffee:** portrait, 1600 × 2000 or larger. A latte/cappuccino on a warm café table, cup near the centre. Leave space around it for the arched crop. Current placeholder: `assets/coffee-hero.svg`.
-2. **Café interior:** landscape, 1800 × 1200 or larger, for an additional photo section. Replacing the current interactive illustration would also require redesigning the chair interaction.
-3. **Pastry:** landscape, 1600 × 1200 or larger. A croissant, cookie or other signature bake, preferably on a table beside a cup. Current placeholder: `assets/croissant.svg`.
+2. **Café interior:** landscape, 1800 × 1200 or larger, for an additional photo section. The current scene is a static original illustration.
+3. **Pastry:** landscape, 1600 × 1200 or larger. A croissant, cookie or other signature bake, preferably on a table beside a cup. Current artwork: inline SVG in `index.html`; a photo replacement would also require redesigning the bite masks.
 
 When supplied, create efficient WebP/AVIF sizes and update sources, dimensions and alt text. The current SVG illustrations are original editable artwork.
 

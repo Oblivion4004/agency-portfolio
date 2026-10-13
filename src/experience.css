@@ -110,6 +110,126 @@
   height: auto;
   padding-top: 26px;
 }
+.pastry-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.croissant-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.bite-trigger {
+  position: absolute;
+  left: 22%;
+  top: 30%;
+  width: 56%;
+  height: 42%;
+  border: 0;
+  border-radius: 45%;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.bite-trigger:focus-visible {
+  outline: 3px dashed var(--ink);
+  outline-offset: 8px;
+}
+.bite-trigger[aria-disabled="true"] {
+  cursor: default;
+}
+.bite-invitation {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  white-space: nowrap;
+  pointer-events: none;
+  padding: 10px 17px;
+  border-radius: 30px;
+  color: var(--cream);
+  background: var(--olive);
+  font-size: 11px;
+}
+.bite-invitation span {
+  margin-left: 12px;
+  font-size: 18px;
+}
+.pastry-food {
+  transform-origin: 50% 55%;
+  transition: transform 0.2s ease;
+}
+.croissant-game[data-bites="0"]
+  .pastry-stage:has(.bite-trigger:hover)
+  .pastry-food {
+  transform: rotate(-2deg);
+}
+.bite-crumbs {
+  opacity: 0;
+}
+.croissant-game:not([data-bites="0"]) .bite-crumbs {
+  opacity: 1;
+}
+.pairing-photo .game-caption {
+  margin: 0;
+  padding: 22px 0 0;
+  min-height: 158px;
+  text-align: left;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.bite-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.bite-meta .eyebrow {
+  margin: 0;
+  font-size: 9px;
+}
+.bite-count {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+#bite-status {
+  margin-top: 10px;
+  font:
+    italic 25px/1.3 Georgia,
+    serif;
+  color: var(--ink);
+}
+.bite-finish {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 12px;
+}
+.bite-finish .text-link {
+  margin: 0;
+  padding-bottom: 8px;
+  min-height: 44px;
+  font-size: 13px;
+}
+.bite-reset {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  min-height: 44px;
+  padding: 4px 0;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pastry-food {
+    transition: none;
+    transform: none !important;
+  }
+}
 .story-photo .scene-caption {
   position: relative;
   inset: auto;
@@ -121,56 +241,6 @@
   text-align: center;
   font-size: 8px;
   letter-spacing: 0.13em;
-}
-.chair-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-  margin-top: 13px;
-  min-height: 48px;
-  padding: 10px 23px;
-  border: 1px solid #637056;
-  border-radius: 30px;
-  background: transparent;
-  font-size: 12px;
-  letter-spacing: 0;
-  transition:
-    background 0.2s,
-    color 0.2s;
-}
-.chair-button:hover,
-.chair-button[aria-pressed="true"] {
-  background: var(--olive);
-  color: var(--cream);
-}
-.chair-button > span {
-  font-size: 22px;
-}
-.scene-caption .chair-hint {
-  font-size: 10px;
-  color: #505c42;
-  font-weight: 500;
-  letter-spacing: 0;
-  margin-top: 10px;
-}
-.guest-chair {
-  transform-box: fill-box;
-  transform-origin: center bottom;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.cafe-scene.is-inviting .guest-chair {
-  transform: translate(9px, 42px) rotate(-7deg);
-}
-.steam {
-  opacity: 0.7;
-  transition:
-    transform 0.8s ease,
-    opacity 0.8s ease;
-}
-.cafe-scene.is-inviting .steam {
-  transform: translateY(-7px);
-  opacity: 1;
 }
 @media (max-width: 760px) {
   .coffee-landing {
@@ -190,11 +260,7 @@
     margin-inline: auto;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .guest-chair {
-    transition: none;
-  }
-}
+
 @media print {
   .coffee-journey {
     display: none !important;
