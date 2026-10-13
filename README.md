@@ -58,6 +58,10 @@ For a real launch, replace the sample content with approved information, configu
 
 The generated `dist/` can be hosted by a static hosting provider. Hosting and connecting the purchased domain will be a separate guided step. This folder is independent of the ATRIXX WEB portfolio in `../forme-studio`.
 
+### Cloudflare Workers Builds
+
+This project includes `wrangler.jsonc` for an asset-only Worker. Use `npm run build` as the build command; the Wrangler configuration sets `./dist` as the assets directory so source files, dependencies and test artifacts are not uploaded. Use `npx wrangler deploy` as the deploy command. Do not use `.` as the Workers assets directory.
+
 ## Asset licence
 
 The local Manrope font is distributed under the SIL Open Font License; its licence is retained at `assets/fonts/OFL.txt`.
