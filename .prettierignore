@@ -1,0 +1,5 @@
+dist/
+artifacts/
+node_modules/
+assets/fonts/
+package-lock.json

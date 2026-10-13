@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f0e6" />
+    <meta
+      name="description"
+      content="Atharva Coffee — a fictional neighbourhood café concept. Explore a sample coffee and pastry menu, a warm space, and slow mornings."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Atharva Coffee — A little pause, a lovely coffee.</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link
+      rel="preload"
+      href="assets/fonts/manrope-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="src/main.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <aside class="demo-ribbon" aria-label="Demo website notice">
+      <span class="small-star" aria-hidden="true">✳</span> A fictional café. A
+      real love for good design.
+      <span class="ribbon-end">AN ATRIXX WEB DEMO</span>
+    </aside>
+    <header class="site-header shell">
+      <a href="#" class="brand" aria-label="Atharva Coffee, home">
+        <svg
+          class="brand-symbol"
+          viewBox="0 0 44 44"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M8 18h24v9a10 10 0 0 1-10 10h-4A10 10 0 0 1 8 27v-9Z"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <path
+            d="M32 21h3a5 5 0 0 1 0 10h-4M5 40h31M15 12c-4-5 4-5 0-10M24 12c-4-5 4-5 0-10"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span class="brand-wordmark"
+          >atharva<span>COFFEE & LITTLE MOMENTS</span></span
+        >
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        hidden
+      >
+        <span class="nav-toggle-label">Menu</span
+        ><span class="nav-toggle-icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="#menu">Our menu</a><a href="#story">Our little corner</a
+        ><a href="#visit" class="nav-visit"
+          >Come say hello <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="tiny-line"></span> MAKE ROOM FOR A LITTLE PAUSE
+          </p>
+          <h1 id="hero-title">Good coffee.<br />Better <em>days.</em></h1>
+          <p class="hero-description">
+            A warm cup, something freshly baked, and a moment that’s entirely
+            yours. Welcome to your new favourite little corner.
+          </p>
+          <a href="#menu" class="button button-dark"
+            >Find your favourite
+            <span class="button-arrow" aria-hidden="true">↗</span></a
+          >
+          <div class="hero-footnote">
+            <span class="sunburst" aria-hidden="true">✳</span>
+            <p>
+              For early starts.<br /><strong>And no-rush afternoons.</strong>
+            </p>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="round-stamp" aria-label="Coffee and good company">
+            <span>COFFEE &</span
+            ><svg viewBox="0 0 40 40" aria-hidden="true">
+              <path
+                d="M20 6v28M6 20h28M10 10l20 20M10 30l20-20"
+                stroke="currentColor"
+                stroke-width="1.8"
+              /></svg
+            ><span>GOOD COMPANY</span>
+          </div>
+          <figure class="hero-photo">
+            <img
+              src="assets/coffee-hero.svg"
+              alt="Illustrated placeholder: a ceramic cup of latte on a terracotta café table"
+              width="1000"
+              height="1200"
+              fetchpriority="high"
+            />
+            <figcaption>TAKE A SIP. TAKE YOUR TIME.</figcaption>
+          </figure>
+          <p class="image-note">
+            A little preview of the mood. Photography to follow.
+          </p>
+        </div>
+      </section>
+      <div class="rhythm-strip" aria-hidden="true">
+        <div>
+          GOOD COFFEE <span>✳</span> SLOW MORNINGS <span>✳</span> FRESH BAKES
+          <span>✳</span> LITTLE MOMENTS <span>✳</span> GOOD COMPANY
+        </div>
+      </div>
+      <section
+        class="menu-section shell section-space"
+        id="menu"
+        aria-labelledby="menu-title"
+      >
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">01 / THE GOOD STUFF</p>
+            <h2 id="menu-title">Find your <em>usual.</em></h2>
+          </div>
+          <p>
+            Something bold. Something smooth.<br />Something you’ll come back
+            for.
+          </p>
+        </div>
+        <div class="menu-toolbar reveal">
+          <div
+            class="menu-filters"
+            role="group"
+            aria-label="Filter the menu"
+            hidden
+          >
+            <button
+              class="filter-button"
+              type="button"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              A little of everything
+            </button>
+            <button
+              class="filter-button"
+              type="button"
+              data-filter="coffee"
+              aria-pressed="false"
+            >
+              Coffee
+            </button>
+            <button
+              class="filter-button"
+              type="button"
+              data-filter="cold"
+              aria-pressed="false"
+            >
+              Cold sips
+            </button>
+            <button
+              class="filter-button"
+              type="button"
+              data-filter="bakes"
+              aria-pressed="false"
+            >
+              From the oven
+            </button>
+          </div>
+          <span class="sample-note">SAMPLE MENU · PRICES IN ₹</span>
+        </div>
+        <p
+          class="sr-only"
+          id="menu-status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></p>
+        <div class="menu-list" id="menu-items">
+          <article class="menu-item" data-category="coffee">
+            <div class="menu-item-heading">
+              <h3>Espresso</h3>
+              <span class="menu-price">₹120</span>
+            </div>
+            <p>Small cup. Full character. A rich, classic coffee.</p>
+            <span class="menu-category">COFFEE</span>
+          </article>
+          <article class="menu-item" data-category="coffee">
+            <div class="menu-item-heading">
+              <h3>
+                Flat white <span class="menu-tag">A LITTLE FAVOURITE</span>
+              </h3>
+              <span class="menu-price">₹190</span>
+            </div>
+            <p>A double espresso with silky steamed milk.</p>
+            <span class="menu-category">COFFEE</span>
+          </article>
+          <article class="menu-item" data-category="coffee">
+            <div class="menu-item-heading">
+              <h3>Cappuccino</h3>
+              <span class="menu-price">₹180</span>
+            </div>
+            <p>Espresso, warm milk, and a soft cloud of foam.</p>
+            <span class="menu-category">COFFEE</span>
+          </article>
+          <article class="menu-item" data-category="cold">
+            <div class="menu-item-heading">
+              <h3>Iced vanilla latte</h3>
+              <span class="menu-price">₹220</span>
+            </div>
+            <p>Espresso over ice, milk, and a hint of vanilla.</p>
+            <span class="menu-category">COLD SIPS</span>
+          </article>
+          <article class="menu-item" data-category="cold">
+            <div class="menu-item-heading">
+              <h3>Cold brew</h3>
+              <span class="menu-price">₹200</span>
+            </div>
+            <p>Slow-steeped coffee. Smooth, simple, refreshing.</p>
+            <span class="menu-category">COLD SIPS</span>
+          </article>
+          <article class="menu-item" data-category="bakes">
+            <div class="menu-item-heading">
+              <h3>Butter croissant</h3>
+              <span class="menu-price">₹150</span>
+            </div>
+            <p>Golden layers, a soft centre, and a happy mess.</p>
+            <span class="menu-category">FROM THE OVEN</span>
+          </article>
+          <article class="menu-item" data-category="bakes">
+            <div class="menu-item-heading">
+              <h3>Chocolate cookie</h3>
+              <span class="menu-price">₹110</span>
+            </div>
+            <p>Crisp edges, a soft middle, and chocolate chunks.</p>
+            <span class="menu-category">FROM THE OVEN</span>
+          </article>
+          <article class="menu-item" data-category="bakes">
+            <div class="menu-item-heading">
+              <h3>Banana walnut loaf</h3>
+              <span class="menu-price">₹140</span>
+            </div>
+            <p>A comforting slice for your afternoon coffee.</p>
+            <span class="menu-category">FROM THE OVEN</span>
+          </article>
+        </div>
+        <div class="menu-bottom">
+          <p>
+            This is an illustrative menu. No purchases or orders are accepted.
+          </p>
+          <button type="button" class="text-button" id="print-menu" hidden>
+            Print the full menu <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+      <section
+        class="story-section section-space"
+        id="story"
+        aria-labelledby="story-title"
+      >
+        <div class="story-layout shell">
+          <figure class="story-photo reveal">
+            <img
+              src="assets/cafe-interior.svg"
+              alt="Illustrated placeholder: a sunlit café corner with a window, plants, and a table for two"
+              width="1000"
+              height="1050"
+              loading="lazy"
+            />
+            <figcaption>A CORNER TO CALL YOUR OWN</figcaption>
+          </figure>
+          <div class="story-copy reveal">
+            <p class="eyebrow">02 / OUR LITTLE CORNER</p>
+            <h2 id="story-title">Life moves fast.<br /><em>Sip slowly.</em></h2>
+            <p>
+              Some places are made for the in-between. The first coffee before a
+              busy day. The catch-up that becomes a whole afternoon. One more
+              page of a good book.
+            </p>
+            <p>
+              That’s the feeling behind Atharva Coffee: an imagined
+              neighbourhood café with room for the little things.
+            </p>
+            <a href="#visit" class="text-link"
+              >Pull up a chair <span aria-hidden="true">↗</span></a
+            >
+            <div class="story-signature" aria-hidden="true">
+              See you over a cup.<svg viewBox="0 0 100 45" fill="none">
+                <path
+                  d="M5 12c32 34 56 23 76 1M67 9l16 1-3 17"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="pairing-section shell section-space"
+        aria-labelledby="pairing-title"
+      >
+        <div class="pairing-copy reveal">
+          <p class="eyebrow">BETTER TOGETHER</p>
+          <h2 id="pairing-title">
+            A cup.<br />A crumb.<br /><em>A little joy.</em>
+          </h2>
+          <p>
+            Because the best coffee dates<br />usually involve something flaky.
+          </p>
+          <a class="text-link menu-bakes-link" href="#menu"
+            >Explore the bakes <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <figure class="pairing-photo reveal">
+          <img
+            src="assets/croissant.svg"
+            alt="Illustrated placeholder: a golden croissant on baking paper beside a coffee cup"
+            width="1200"
+            height="850"
+            loading="lazy"
+          />
+          <figcaption>THE SIMPLE THINGS, DONE WITH LOVE.</figcaption>
+        </figure>
+      </section>
+      <section
+        class="visit-section section-space"
+        id="visit"
+        aria-labelledby="visit-title"
+      >
+        <div class="shell visit-layout">
+          <div class="visit-intro reveal">
+            <p class="eyebrow">03 / MAKE YOURSELF AT HOME</p>
+            <h2 id="visit-title">
+              There’s a seat<br /><em>with your name on it.</em>
+            </h2>
+            <p>Bring a friend. Bring a book.<br />Or just bring yourself.</p>
+            <span class="visit-flower" aria-hidden="true">✳</span>
+          </div>
+          <div class="visit-details reveal">
+            <div class="visit-detail">
+              <span class="detail-number">01</span>
+              <div>
+                <h3>Our little address</h3>
+                <p>Café location to be added.</p>
+                <span class="detail-note"
+                  >This demo has no physical café location.</span
+                >
+              </div>
+            </div>
+            <div class="visit-detail">
+              <span class="detail-number">02</span>
+              <div>
+                <h3>Slow mornings, long afternoons</h3>
+                <p>Monday – Sunday <span class="hours">8 am – 8 pm</span></p>
+                <span class="detail-note"
+                  >Sample opening hours for the café concept.</span
+                >
+              </div>
+            </div>
+            <div class="visit-detail">
+              <span class="detail-number">03</span>
+              <div>
+                <h3>Let’s talk coffee</h3>
+                <p>Phone & email to be added.</p>
+                <span class="detail-note"
+                  >Enquiries and reservations are not active yet.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer shell">
+      <div class="footer-top">
+        <a href="#" class="footer-wordmark" aria-label="Back to top"
+          >atharva<span>COFFEE</span></a
+        >
+        <p>A little pause.<br />A lovely coffee.</p>
+        <a href="#main" class="back-to-top"
+          >Back to top <span aria-hidden="true">↑</span></a
+        >
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © <span id="year">2026</span> Atharva Coffee · Fictional café demo.
+        </p>
+        <p>Imagined & made by <strong>ATRIXX WEB</strong></p>
+      </div>
+    </footer>
+  </body>
+</html>
