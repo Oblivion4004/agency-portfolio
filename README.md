@@ -65,7 +65,7 @@ This is a clearly labelled fictional café concept. Menu descriptions and hours 
 
 For a real launch, replace the sample content with approved information, configure a genuine contact/directions action, and remove the demo notice and `noindex`/robots block only when appropriate. This phase includes no analytics dashboard or tracking; those can be connected after deployment using the client's account.
 
-The generated `dist/` can be hosted by a static hosting provider. Hosting and connecting the purchased domain will be a separate guided step. This folder is independent of the ATRIXX WEB portfolio in `../forme-studio`.
+The generated `dist/` can be hosted by a static hosting provider. Hosting and connecting the purchased domain will be a separate guided step. This folder is independent of the Arvion Studios portfolio in `../forme-studio`.
 
 ### Cloudflare Workers Builds
 
