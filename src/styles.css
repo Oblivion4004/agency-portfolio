@@ -756,11 +756,17 @@ h3 {
   font-size: 9px;
   color: var(--muted);
 }
-.footer-bottom strong {
+.studio-credit {
+  display: inline-block;
   font-size: 9px;
   font-weight: 750;
   letter-spacing: 0.08em;
   color: var(--ink);
+  border-bottom: 1px solid currentColor;
+  transition: color 160ms ease;
+}
+.studio-credit:hover {
+  color: var(--clay);
 }
 .will-reveal {
   opacity: 0;
@@ -1184,7 +1190,7 @@ h3 {
     gap: 8px;
     padding-block: 20px;
   }
-  .footer-bottom strong {
+  .studio-credit {
     font-size: 8px;
   }
   .eyebrow {
